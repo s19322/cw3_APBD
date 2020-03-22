@@ -15,7 +15,7 @@ namespace zajecia3.Controllers
         [HttpGet]
         public string GetStudents(string orderBy)//metoda przekazujaca dane QueryString
         {
-            return $"Natalia, Hania, Maciek sortowanie={ orderBy }";
+            return $"Natalia, Hania, Maciek{ orderBy }";
         }
 
         [HttpGet("{id}")]
@@ -29,7 +29,7 @@ namespace zajecia3.Controllers
                 return Ok("Malewski");
             }
             return NotFound("Nie znaleziono studenta");
-         }
+        }
 
 
         [HttpPost]
@@ -43,9 +43,19 @@ namespace zajecia3.Controllers
 
         public IActionResult UpdateStudent(int id)
         {
-            System.Console.WriteLine("aktualizacja dokonczona");
-            return Ok(id);
-
+            if(id==10)
+            return Ok("aktualizacja dokonczona");
+            
+            return Ok("brak akcji");
+        }
+        [HttpDelete("id")]
+        public IActionResult DeleteStudent(int id)
+        {
+            if (id == 10)
+            {
+                return Ok("Usuwanie ukonczone");
+            }
+            return Ok("brak akcji");
         }
 
     }
