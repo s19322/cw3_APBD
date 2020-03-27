@@ -13,17 +13,32 @@ namespace zajecia3.Controllers
     [Route("api/students")]
     public class StudentsController : ControllerBase
     {
+<<<<<<< HEAD
         private const string sqlConString = "Data Source=db-mssql;Initial Catalog=s19322;Integrated Security=True";
+=======
+        [HttpGet]
+        public string GetStudents(string orderBy)//metoda przekazujaca dane QueryString
+        {
+            return $"Natalia, Hania, Maciek{ orderBy }";
+        }
+>>>>>>> fcb6875c4f420e816fc8821495d5fce4710f1564
 
 
         [HttpGet]
         public IActionResult GetStudent() {
             {
+<<<<<<< HEAD
                 List<Student> students = new List<Student>();
                 var con = new SqlConnection(sqlConString) ;
 
                     using (var comand = new SqlCommand()) { 
 
+=======
+                return Ok("Malewski");
+            }
+            return NotFound("Nie znaleziono studenta");
+        }
+>>>>>>> fcb6875c4f420e816fc8821495d5fce4710f1564
 
                     comand.Connection = con;
                     comand.CommandText = " select s.FirstName,s.LastName,s.BirthDate,stud.Name.e,e.Semester " +
@@ -57,9 +72,19 @@ namespace zajecia3.Controllers
 
         public IActionResult UpdateStudent(int id)
         {
-            System.Console.WriteLine("aktualizacja dokonczona");
-            return Ok(id);
-
+            if(id==10)
+            return Ok("aktualizacja dokonczona");
+            
+            return Ok("brak akcji");
+        }
+        [HttpDelete("id")]
+        public IActionResult DeleteStudent(int id)
+        {
+            if (id == 10)
+            {
+                return Ok("Usuwanie ukonczone");
+            }
+            return Ok("brak akcji");
         }
 
     }
