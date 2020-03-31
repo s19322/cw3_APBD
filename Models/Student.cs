@@ -3,7 +3,7 @@
 
     public class Student
     {
-        public int Name { get; set; }//nazwa studiow
+        public string Name { get; set; }//nazwa studiow
 
         public string FirstName { get; set; }
 
@@ -11,7 +11,7 @@
 
         public string BirthDate { get; set; }
 
-        public int Semester { get; set; }
+        public string Semester { get; set; }
     }
 
 
